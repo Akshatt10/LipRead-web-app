@@ -2,7 +2,7 @@ import streamlit as st
 import imageio
 import os
 import numpy as np
-
+import tempfile
 import tensorflow as tf
 from utils import load_data, num_to_char
 from modelutil import load_model
@@ -35,16 +35,14 @@ if options:
 
 
     with col2: 
-        st.info('Extracted video for ML model as gif')
+        st.info('Extracted part of video for ML model to predict')
         video, annotations = load_data(tf.convert_to_tensor(input_filepath))
         
-        converted_frames = [np.uint8(frame) for frame in video]
-
-# Save the converted frames as a GIF
+        DEMO_VIDEO = r"C:\Users\Akshat tyagi\Downloads\animation-ezgif.com-video-to-mp4-converter.mp4"
+        tfflie = tempfile.NamedTemporaryFile(delete=False)
+        tfflie.name = DEMO_VIDEO
+        st.video(tfflie.name)
         
-        
-       
-
         st.info('This is the output of the machine learning model as tokens')
         model = load_model()
         yhat = model.predict(tf.expand_dims(video, axis=0))
