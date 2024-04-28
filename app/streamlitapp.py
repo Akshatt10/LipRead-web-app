@@ -8,7 +8,8 @@ from modelutil import load_model
 
 st.set_page_config(layout='wide')
 with st.sidebar:
-    st.image("C:\\Users\\Akshat tyagi\\Downloads\\LipRead.png")
+    img_path = os.path.join("..","LipRead.png")
+    st.image(img_path)
     st.title("Lip Interpretation")
     st.info("Developed to perform lip reading task over a given video")
 
@@ -37,7 +38,8 @@ if options:
         st.info('Extracted part of video for ML model to predict')
         video, annotations = load_data(tf.convert_to_tensor(input_filepath))
         
-        DEMO_VIDEO = r"C:\Users\Akshat tyagi\Downloads\animation-ezgif.com-video-to-mp4-converter.mp4"
+        vi_path = os.path.join('..','animation-ezgif.com-video-to-mp4-converter.mp4')
+        DEMO_VIDEO = (vi_path)
         tfflie = tempfile.NamedTemporaryFile(delete=False)
         tfflie.name = DEMO_VIDEO
         st.video(tfflie.name)
