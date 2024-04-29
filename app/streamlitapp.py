@@ -30,7 +30,7 @@ if options:
         os.system(f'ffmpeg -i "{input_filepath}" -vcodec libx264 "{output_filepath}" -y')
 
     # Display converted video
-        video_bytes = open('converted_video.mp4', 'rb').read()
+        video_bytes = open(output_filepath, 'rb').read()
         st.video(video_bytes)
 
 
