@@ -8,7 +8,7 @@ from modelutil import load_model
 
 st.set_page_config(layout='wide')
 with st.sidebar:
-    img_path = os.path.join("..","LipRead.png")
+    img_path = "LipRead.png"
     st.image(img_path)
     st.title("Lip Interpretation")
     st.info("Developed to perform lip reading task over a given video")
