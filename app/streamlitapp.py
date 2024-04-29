@@ -14,7 +14,7 @@ with st.sidebar:
     st.info("Developed to perform lip reading task over a given video")
 
 st.title("Video Platform")
-options = os.listdir(os.path.join('..', 'data', 's1'))
+options = os.listdir(os.path.join('data', 's1'))
 selected_video = st.selectbox('Choose video', options)
 
 # Generate two columns 
@@ -23,7 +23,7 @@ col1, col2 = st.columns(2)
 if options:  
     with col1: 
         st.info('The video below displays the converted video in mp4 format')
-        input_filepath = os.path.join('..', 'data', 's1', selected_video)
+        input_filepath = os.path.join('data', 's1', selected_video)
         output_filepath = 'converted_video.mp4'
 
     # Convert selected video to mp4 using FFmpeg
@@ -38,7 +38,7 @@ if options:
         st.info('Extracted part of video for ML model to predict')
         video, annotations = load_data(tf.convert_to_tensor(input_filepath))
         
-        vi_path = os.path.join('..','animation-ezgif.com-video-to-mp4-converter.mp4')
+        vi_path = 'animation-ezgif.com-video-to-mp4-converter.mp4'
         DEMO_VIDEO = (vi_path)
         tfflie = tempfile.NamedTemporaryFile(delete=False)
         tfflie.name = DEMO_VIDEO
